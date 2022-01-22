@@ -1,3 +1,0 @@
-/home/aregenia/Project/FdF/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/aregenia/Project/FdF/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/aregenia/Project/FdF/cmake-build-debug/CMakeFiles/FdF.dir

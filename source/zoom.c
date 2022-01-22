@@ -9,7 +9,9 @@ void	calc_zoom(t_fdf *t_main, t_point *p)
 void	change_zoom(t_fdf *t_main, int code)
 {
 	if (code == 61)
+	{
 		t_main->zoom += 0.02;
+	}
 	else
 	{
 		t_main->zoom -= 0.02;

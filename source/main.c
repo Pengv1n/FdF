@@ -58,7 +58,7 @@ void	free_raw(char **line, char ***raw)
 {
 	int	i;
 
-	if (*line && line)
+	if (*line)
 	{
 		free(*line);
 		*line = NULL;
@@ -72,6 +72,7 @@ void	free_raw(char **line, char ***raw)
 			(*raw)[i] = NULL;
 		}
 //		free((*raw)[i]);
+		free(*raw);
 	}
 }
 
@@ -164,8 +165,9 @@ int	fdf(int fd)
 	center(&t_main);
 	disp(&t_main);
 
-	mlx_hook(t_main.mlx.win, 2, (1L<<0), &hook, &t_main);
+	mlx_hook(t_main.mlx.win, 2, 1L<<0, &hook, &t_main);
 	mlx_loop(t_main.mlx.mlx_ptr);
+	free_fdf(&t_main, 0);
 	return (0);
 }
 

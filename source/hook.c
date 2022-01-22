@@ -28,12 +28,12 @@ int	hook(int code, void *param)
 		t_main->menu = !t_main->menu;
 		menu(t_main);
 	}
-//	else if (code >= 49 && code <= 54)
-//		change_rotate(t_main, code);
+	else if (code >= 49 && code <= 54)
+		change_rotate(t_main, code);
 	else if (code == 110)
 		center(t_main);
+	calc_1(t_main);
 	color(t_main);
 	disp(t_main);
-	printf("%i\n", code);
 	return (1);
 }

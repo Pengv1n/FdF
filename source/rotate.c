@@ -23,10 +23,10 @@ void	calc_rotate(t_fdf *t_main,  t_point *p, t_rot_data *r)
 	int	old_y2;
 	int	old_z2;
 
-//	old_x2 = p->x2 - ((t_main->x_max - t_main->x_min) / 2);
-//	old_y2 = p->y2 - ((t_main->y_max - t_main->y_min) / 2);
-	old_x2 = p->x2;
-	old_y2 = p->y2;
+	old_x2 = p->x2 - ((t_main->x_max - t_main->x_min) / 2);
+	old_y2 = p->y2 - ((t_main->y_max - t_main->y_min) / 2);
+//	old_x2 = p->x2;
+//	old_y2 = p->y2;
 	old_z2 = p->z2;
 	p->x2 = old_x2 * r->c * r->e - old_y2 * r->c * r->f + r->d * old_z2;
 	p->y2 = old_x2 * r->bd * r->e + old_x2 * r->a * r->f

@@ -115,6 +115,8 @@ void	reset(t_fdf *t_main, int proj);
 void	change_proj(t_fdf *t_main);
 void	menu(t_fdf *t_main);
 void	change_rotate(t_fdf *t_main, int code);
-void	find_border(t_fdf *t_main);
+void	ft_error(char *str);
+int	count_array(char **array);
+void	free_raw(char **line, char ***raw);
 
 #endif

@@ -1,5 +1,21 @@
 #include "fdf.h"
 
+void	find_border(t_fdf *t_main)
+{
+	int i;
+
+	i = -1;
+	t_main->max_height = t_main->mtx[0].z;
+	t_main->min_height = t_main->mtx[0].z;
+	while (++i < t_main->num)
+	{
+		if (t_main->max_height < t_main->mtx[i].z)
+			t_main->max_height = t_main->mtx[i].z;
+		if (t_main->min_height > t_main->mtx[i].z)
+			t_main->min_height = t_main->mtx[i].z;
+	}
+}
+
 void	color_point(t_fdf *t_main, t_point *p)
 {
 	t_gradient	g;

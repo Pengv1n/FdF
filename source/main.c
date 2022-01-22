@@ -1,42 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aregenia <aregenia@student.21-school.      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/22 23:01:33 by aregenia          #+#    #+#             */
+/*   Updated: 2022/01/22 23:01:38 by aregenia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
-void	ft_error(char *str)
-{
-	ft_putendl_fd(str, 2);
-	exit(EXIT_FAILURE);
-}
-
-int	count_array(char **array)
-{
-	int ret;
-
-	ret = -1;
-	while (array[++ret])
-		;
-	return (ret);
-}
-
-int	split_line(char **line, char ***ret_line)
-{
-	*ret_line = ft_split(*line, ' ');
-	if (!(*ret_line))
-		return (0);
-	return (1);
-}
-
-int fill_mtx(t_fdf *t_main, char **raw)
+int	fill_mtx(t_fdf *t_main, char **raw)
 {
 	t_point	*p;
-	int i;
-	int	start;
+	int		i;
+	int		start;
 
 	i = 0;
 	start = t_main->num_clmn * (t_main->num_raws - 1);
-	p = (t_point *) malloc(sizeof(t_point) * t_main->num_clmn * t_main->num_raws);
+	p = (t_point *) malloc(sizeof(t_point)
+			* t_main->num_clmn * t_main->num_raws);
 	if (!p)
-	{
 		return (0);
-	}
 	if (t_main->mtx)
 	{
 		ft_memcpy(p, t_main->mtx, sizeof(t_point)
@@ -54,38 +41,20 @@ int fill_mtx(t_fdf *t_main, char **raw)
 	return (1);
 }
 
-void	free_raw(char **line, char ***raw)
+int	parse_map(int fd, t_fdf *t_main)
 {
-	int	i;
+	char	*line;
+	char	**raw;
 
-	if (*line)
+	while (1)
 	{
-		free(*line);
-		*line = NULL;
-	}
-	if (*raw)
-	{
-		i = -1;
-		while ((*raw)[++i])
-		{
-			free((*raw)[i]);
-			(*raw)[i] = NULL;
-		}
-//		free((*raw)[i]);
-		free(*raw);
-	}
-}
-
-int parse_map(int fd, t_fdf *t_main)
-{
-	char *line;
-	char **raw;
-
-	while (line = get_next_line(fd))
-	{
+		line = get_next_line(fd);
+		if (!line)
+			break ;
 		line[ft_strlen(line) - 1] = '\0';
 		t_main->num_raws++;
-		if (!split_line(&line, &raw))
+		raw = ft_split(line, ' ');
+		if (!raw)
 		{
 			ft_error("Error: split line");
 		}
@@ -97,13 +66,6 @@ int parse_map(int fd, t_fdf *t_main)
 		}
 		free_raw(&line, &raw);
 	}
-//	int i = -1;
-//	while (++i < t_main->num)
-//	{
-//		printf("%d ", t_main->mtx[i].z);
-//		if ((i + 1) % t_main->num_clmn == 0)
-//			printf("\n");
-//	}
 	return (1);
 }
 
@@ -132,22 +94,6 @@ void	init_main(t_fdf *t_main)
 	t_main->menu = 0;
 }
 
-void	find_border(t_fdf *t_main)
-{
-	int i;
-
-	i = -1;
-	t_main->max_height = t_main->mtx[0].z;
-	t_main->min_height = t_main->mtx[0].z;
-	while (++i < t_main->num)
-	{
-		if (t_main->max_height < t_main->mtx[i].z)
-			t_main->max_height = t_main->mtx[i].z;
-		if (t_main->min_height > t_main->mtx[i].z)
-			t_main->min_height = t_main->mtx[i].z;
-	}
-}
-
 int	fdf(int fd)
 {
 	t_fdf	t_main;
@@ -156,7 +102,6 @@ int	fdf(int fd)
 	parse_map(fd, &t_main);
 	t_main.mlx.mlx_ptr = mlx_init();
 	t_main.mlx.win = mlx_new_window(t_main.mlx.mlx_ptr, WIDTH, HEIGHT, "FDF");
-
 	color(&t_main);
 	calc_1(&t_main);
 	get_edge_pos(&t_main);
@@ -164,14 +109,13 @@ int	fdf(int fd)
 	calc_1(&t_main);
 	center(&t_main);
 	disp(&t_main);
-
-	mlx_hook(t_main.mlx.win, 2, 1L<<0, &hook, &t_main);
+	mlx_hook(t_main.mlx.win, 2, 1L << 0, &hook, &t_main);
 	mlx_loop(t_main.mlx.mlx_ptr);
 	free_fdf(&t_main, 0);
 	return (0);
 }
 
-int	main(int argc, char ** argv)
+int	main(int argc, char **argv)
 {
 	int	fd;
 

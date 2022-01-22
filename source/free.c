@@ -1,5 +1,26 @@
 #include "fdf.h"
 
+void	free_raw(char **line, char ***raw)
+{
+	int	i;
+
+	if (*line)
+	{
+		free(*line);
+		*line = NULL;
+	}
+	if (*raw)
+	{
+		i = -1;
+		while ((*raw)[++i])
+		{
+			free((*raw)[i]);
+			(*raw)[i] = NULL;
+		}
+		free(*raw);
+	}
+}
+
 int	free_fdf(t_fdf *t_main, char do_exit)
 {
 	free(t_main->mtx);

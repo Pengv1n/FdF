@@ -23,7 +23,7 @@ void	calc_2(t_fdf *t_main)
 	i = -1;
 	set_rotate(t_main, &r);
 	get_edge_pos(t_main);
-	while (i++ < (t_main->num - 1))
+	while (++i < t_main->num)
 	{
 		p = &(t_main->mtx[i]);
 		calc_rotate(t_main, p, &r);

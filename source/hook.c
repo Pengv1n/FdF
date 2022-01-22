@@ -23,14 +23,14 @@ int	hook(int code, void *param)
 		t_main->color_code++;
 		color(t_main);
 	}
-	else if (code == 104)
+	else if (code == 109)
 	{
 		t_main->menu = !t_main->menu;
 		menu(t_main);
 	}
 	else if (code >= 49 && code <= 54)
 		change_rotate(t_main, code);
-	else if (code == 110)
+	else if (code == 101)
 		center(t_main);
 	calc_1(t_main);
 	color(t_main);

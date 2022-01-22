@@ -5,17 +5,17 @@ void	menu(t_fdf *t_main)
 	if (t_main->menu)
 	{
 		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 32, 0xFDEE00,
-					   "----- LIST OF COMMANDS (hide: H) -----");
+					   "----- Reference (hide: M) -----");
 		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 62, 0xFDEE00,
 					   "Zoom out/in: -/+");
 		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 82, 0xFDEE00,
-					   "Lower/increase altitude: W/S");
+					   "Lower/increase height: W/S");
 		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 102, 0xFDEE00,
 					   "Move camera: up/down/left/right arrow");
 		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 122, 0xFDEE00,
-					   "Center: C");
+					   "Center: E");
 		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 142, 0xFDEE00,
-					   "X/Y/Z/all axes rotation: 3-4/5-6/7-8/9-0");
+					   "X/Y/Z axes rotation: 1-2/3-4/5-6");
 		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 162, 0xFDEE00,
 					   "Change color: C");
 		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 182, 0xFDEE00,
@@ -25,7 +25,7 @@ void	menu(t_fdf *t_main)
 	}
 	else
 		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 32, 0xFDEE00,
-					   "----- LIST OF COMMANDS (show: H) -----");
+					   "----- Reference (show: M) -----");
 }
 
 void	voisins_point(t_fdf *t_main, t_point *p, t_point *r, t_point *u, int i)
@@ -104,7 +104,7 @@ int		draw_line_1(t_mlx *data, t_point p1, t_point p2,
 			p1.y2 += y_incr;
 			e += (2 * dx);
 		}
-		if (0 <= p1.x2 && p1.x2 < WIDTH && 0 <= p1.y2 && p1.y2 < WIDTH)
+		if (0 <= p1.x2 && p1.x2 < WIDTH && 0 <= p1.y2 && p1.y2 < HEIGHT)
 			fill_img_data(data, p1, grad(&g, &p1, 1));
 		p1.x2++;
 	}
@@ -131,7 +131,7 @@ int		draw_line_2(t_mlx *data, t_point p1, t_point p2,
 			p1.x2 += x_incr;
 			e += (2 * dy);
 		}
-		if (0 <= p1.x2 && p1.x2 < WIDTH && 0 <= p1.y2 && p1.y2 < WIDTH)
+		if (0 <= p1.x2 && p1.x2 < WIDTH && 0 <= p1.y2 && p1.y2 < HEIGHT)
 			fill_img_data(data, p1, grad(&g, &p1, 2));
 		p1.y2++;
 	}

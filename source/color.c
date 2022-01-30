@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   color.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aregenia <aregenia@student.21-school.      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/30 11:40:03 by aregenia          #+#    #+#             */
+/*   Updated: 2022/01/30 11:40:06 by aregenia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 void	find_border(t_fdf *t_main)
 {
-	int i;
+	int	i;
 
-	i = -1;
+	i = 0;
 	t_main->max_height = t_main->mtx[0].z;
 	t_main->min_height = t_main->mtx[0].z;
 	while (++i < t_main->num)
@@ -37,7 +49,7 @@ void	color_point(t_fdf *t_main, t_point *p)
 
 void	color(t_fdf *t_main)
 {
-	int i;
+	int	i;
 
 	find_border(t_main);
 	if (t_main->color_code >= 7)

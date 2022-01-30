@@ -1,16 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   gradient.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aregenia <aregenia@student.21-school.      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/30 15:50:32 by aregenia          #+#    #+#             */
+/*   Updated: 2022/01/30 15:50:35 by aregenia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 float	get_percentage(int start, int finish, int current)
 {
-	float	distance;
-	float	position;
+	float	d;
+	float	p;
 
-	distance = (float)finish - (float)start;
-	position = (float)current - (float)start;
-	return (distance == 0.0 ? 1.0 : position / distance);
+	d = (float)finish - (float)start;
+	p = (float)current - (float)start;
+	if (d == 0.0)
+		return (1.0);
+	else
+		return (p / d);
 }
 
-int		get_gradient_mix(int start, int finish, float percent)
+int	get_gradient_mix(int start, int finish, float percent)
 {
 	return ((int)(start * (1 - percent) + finish * percent));
 }
@@ -18,9 +33,9 @@ int		get_gradient_mix(int start, int finish, float percent)
 int	grad(t_gradient *grad, t_point *p, char axe)
 {
 	float	percent;
-	int r;
-	int g;
-	int b;
+	int		r;
+	int		g;
+	int		b;
 
 	if (axe == 1)
 		percent = get_percentage(grad->start.x2, grad->finish.x2, p->x2);
@@ -29,10 +44,10 @@ int	grad(t_gradient *grad, t_point *p, char axe)
 	else
 		percent = get_percentage(grad->start.z, grad->finish.z, p->z);
 	r = get_gradient_mix((grad->start.color >> 16) & 0xFF,
-						 (grad->finish.color >> 16) & 0xFF, percent);
+			(grad->finish.color >> 16) & 0xFF, percent);
 	g = get_gradient_mix((grad->start.color >> 8) & 0xFF,
-						 (grad->finish.color >> 8) & 0xFF, percent);
+			(grad->finish.color >> 8) & 0xFF, percent);
 	b = get_gradient_mix(grad->start.color & 0xFF,
-						 grad->finish.color & 0xFF, percent);
+			grad->finish.color & 0xFF, percent);
 	return ((r << 16) + (g << 8) + b);
 }

@@ -56,6 +56,7 @@ int	parse_map(int fd, t_fdf *t_main)
 		raw = ft_split(line, ' ');
 		if (!raw)
 		{
+			free_raw(&line, &raw);
 			ft_error("Error: split line");
 		}
 		t_main->num_clmn = count_array(raw);

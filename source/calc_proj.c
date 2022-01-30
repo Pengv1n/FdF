@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   calc_proj.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aregenia <aregenia@student.21-school.      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/30 19:08:15 by aregenia          #+#    #+#             */
+/*   Updated: 2022/01/30 19:08:17 by aregenia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 void	change_proj(t_fdf *t_main)
@@ -32,7 +44,7 @@ void	reset(t_fdf *t_main, int proj)
 void	calc_proj(t_fdf *t_main, t_point *p)
 {
 	int	old_x2;
-	int old_y2;
+	int	old_y2;
 
 	if (t_main->proj == 1)
 	{

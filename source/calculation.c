@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   calculation.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aregenia <aregenia@student.21-school.      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/08 11:54:38 by aregenia          #+#    #+#             */
+/*   Updated: 2022/02/08 11:54:40 by aregenia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 void	change_height(t_fdf *t_main, int code)
@@ -16,9 +28,9 @@ void	calc_height(t_fdf *t_main, t_point *p)
 
 void	calc_2(t_fdf *t_main)
 {
-	int i;
-	t_rot_data r;
-	t_point *p;
+	int			i;
+	t_rot_data	r;
+	t_point		*p;
 
 	i = -1;
 	set_rotate(t_main, &r);
@@ -30,13 +42,12 @@ void	calc_2(t_fdf *t_main)
 		calc_proj(t_main, p);
 		calc_shift(t_main, p);
 	}
-
 }
 
 void	calc_1(t_fdf *t_main)
 {
-	int	i;
-	t_point *p;
+	int		i;
+	t_point	*p;
 
 	i = -1;
 	while (++i < t_main->num)
@@ -50,8 +61,8 @@ void	calc_1(t_fdf *t_main)
 
 void	calc(t_fdf *t_main)
 {
-	int i;
-	t_point *p;
+	int		i;
+	t_point	*p;
 
 	i = -1;
 	while (++i < t_main->num)

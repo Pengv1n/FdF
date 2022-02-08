@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   center.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aregenia <aregenia@student.21-school.      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/08 12:06:38 by aregenia          #+#    #+#             */
+/*   Updated: 2022/02/08 12:06:41 by aregenia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 void	get_edge_pos(t_fdf *t_main)
@@ -27,7 +39,7 @@ void	get_edge_pos(t_fdf *t_main)
 void	center(t_fdf *t_main)
 {
 	int	dx;
-	int dy;
+	int	dy;
 
 	get_edge_pos(t_main);
 	dx = t_main->x_max - t_main->x_min;

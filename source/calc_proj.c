@@ -50,8 +50,8 @@ void	calc_proj(t_fdf *t_main, t_point *p)
 	{
 		old_x2 = p->x2;
 		old_y2 = p->y2;
-		p->x2 = (old_x2 - old_y2) * cos(0.523599);
-		p->y2 = -(p->z2) + (old_x2 + p->y2) * sin(0.523599);
+		p->x2 = (old_x2 - old_y2) / sqrt(2);
+		p->y2 = (2 * p->z2 + old_x2 + p->y2) / sqrt(6);
 	}
 	else
 	{

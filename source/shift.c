@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   shift.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aregenia <aregenia@student.21-school.      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/08 11:52:17 by aregenia          #+#    #+#             */
+/*   Updated: 2022/02/08 11:52:19 by aregenia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 void	calc_shift(t_fdf *t_main, t_point *p)
@@ -9,7 +21,7 @@ void	calc_shift(t_fdf *t_main, t_point *p)
 void	change_shift(t_fdf *t_main, int code)
 {
 	t_main->x_incr = 0;
-	t_main->y_incr =0;
+	t_main->y_incr = 0;
 	if (code == 65361)
 		t_main->x_incr -= 10;
 	else if (code == 65362)

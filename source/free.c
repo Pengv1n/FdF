@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aregenia <aregenia@student.21-school.      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/08 12:41:31 by aregenia          #+#    #+#             */
+/*   Updated: 2022/02/08 12:41:32 by aregenia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 void	free_raw(char **line, char ***raw)
@@ -32,7 +44,6 @@ int	free_fdf(t_fdf *t_main, char do_exit)
 	if (t_main->mlx.mlx_ptr && t_main->mlx.win)
 		mlx_destroy_window(t_main->mlx.mlx_ptr, t_main->mlx.win);
 	free(t_main->mlx.mlx_ptr);
-//	t_main->mlx.mlx_ptr = NULL;
 	t_main->mlx.win = NULL;
 	if (do_exit)
 		exit(0);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   zoom.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aregenia <aregenia@student.21-school.      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/08 12:02:23 by aregenia          #+#    #+#             */
+/*   Updated: 2022/02/08 12:02:25 by aregenia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 void	calc_zoom(t_fdf *t_main, t_point *p)
@@ -23,8 +35,8 @@ void	change_zoom(t_fdf *t_main, int code)
 
 void	init_zoom(t_fdf *t_main)
 {
-	int dx;
-	int dy;
+	int		dx;
+	int		dy;
 	float	incr;
 
 	if (t_main->num > 1)
@@ -35,14 +47,15 @@ void	init_zoom(t_fdf *t_main)
 		if (dx < (WIDTH / 4) && dy < (HEIGHT / 4))
 		{
 			while ((dx / t_main->zoom) * (t_main->zoom + incr) < WIDTH / 1.3
-			&& (dy / t_main->zoom) * (t_main->zoom + incr) < HEIGHT / 1.3)
+				&& (dy / t_main->zoom) * (t_main->zoom + incr) < HEIGHT / 1.3)
 				incr += 0.02;
 		}
 		else if (dx > (WIDTH / 1.3) || dy > (HEIGHT / 1.3))
 		{
 			while (incr < 0.98
-					&& ((dx / t_main->zoom) * (t_main->zoom + incr) > WIDTH / 1.3
-					|| (dy / t_main->zoom) * (t_main->zoom + incr) > HEIGHT / 1.3))
+				&& ((dx / t_main->zoom) * (t_main->zoom + incr) > WIDTH / 1.3
+					|| (dy / t_main->zoom) * (t_main->zoom + incr)
+					> HEIGHT / 1.3))
 				incr -= 0.02;
 		}
 		t_main->zoom += incr;

@@ -44,18 +44,18 @@ void	init_zoom(t_fdf *t_main)
 		incr = 0.0;
 		dx = t_main->x_max - t_main->x_min;
 		dy = t_main->y_max - t_main->y_min;
-		if (dx < (WIDTH / 4) && dy < (HEIGHT / 4))
+		if (dx < (WIDTH / 2) && dy < (HEIGHT / 2))
 		{
-			while ((dx / t_main->zoom) * (t_main->zoom + incr) < WIDTH / 1.3
-				&& (dy / t_main->zoom) * (t_main->zoom + incr) < HEIGHT / 1.3)
+			while ((dx / t_main->zoom) * (t_main->zoom + incr) < WIDTH / 2
+				&& (dy / t_main->zoom) * (t_main->zoom + incr) < HEIGHT / 2)
 				incr += 0.02;
 		}
-		else if (dx > (WIDTH / 1.3) || dy > (HEIGHT / 1.3))
+		else if (dx > (WIDTH / 2) || dy > (HEIGHT / 2))
 		{
 			while (incr < 0.98
-				&& ((dx / t_main->zoom) * (t_main->zoom + incr) > WIDTH / 1.3
+				&& ((dx / t_main->zoom) * (t_main->zoom + incr) > WIDTH / 2
 					|| (dy / t_main->zoom) * (t_main->zoom + incr)
-					> HEIGHT / 1.3))
+					> HEIGHT / 2))
 				incr -= 0.02;
 		}
 		t_main->zoom += incr;

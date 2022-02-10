@@ -16,27 +16,27 @@ void	menu(t_fdf *t_main)
 {
 	if (t_main->menu)
 	{
-		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 32, 0xFDEE00,
+		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 32, WHITE,
 			"----- Reference (hide: M) -----");
-		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 62, 0xFDEE00,
-			"Zoom out/in: -/+");
-		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 82, 0xFDEE00,
+		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 62, WHITE,
+					   "Zoom out/in: -/+");
+		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 82, WHITE,
 			"Lower/increase height: W/S");
-		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 102, 0xFDEE00,
+		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 102, WHITE,
 			"Move camera: up/down/left/right arrow");
-		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 122, 0xFDEE00,
+		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 122, WHITE,
 			"Center: E");
-		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 142, 0xFDEE00,
+		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 142, WHITE,
 			"X/Y/Z axes rotation: 1-2/3-4/5-6");
-		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 162, 0xFDEE00,
+		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 162, WHITE,
 			"Change color: C");
-		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 182, 0xFDEE00,
+		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 182, WHITE,
 			"Change/reset projection: X/Z");
-		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 202, 0xFDEE00,
+		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 202, WHITE,
 			"Exit: ESC");
 	}
 	else
-		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 32, 0xFDEE00,
+		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 32, WHITE,
 			"----- Reference (show: M) -----");
 }
 

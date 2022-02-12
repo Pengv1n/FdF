@@ -14,7 +14,7 @@
 
 void	change_height(t_fdf *t_main, int code)
 {
-	if (code == 119)
+	if (code == 1731)
 		t_main->height += 3;
 	else
 		t_main->height -= 3;

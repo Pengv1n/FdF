@@ -14,21 +14,21 @@
 
 void	hook_2(int code, t_fdf *t_main)
 {
-	if (code == 120)
+	if (code == 1758)
 		change_proj(t_main);
-	else if (code == 99)
+	else if (code == 1747)
 	{
 		t_main->color_code++;
 		color(t_main);
 	}
-	else if (code == 109)
+	else if (code == 1752)
 	{
 		t_main->menu = !t_main->menu;
 		menu(t_main);
 	}
 	else if (code >= 49 && code <= 54)
 		change_rotate(t_main, code);
-	else if (code == 101)
+	else if (code == 1749)
 		center(t_main);
 }
 
@@ -39,14 +39,14 @@ int	hook(int code, void *param)
 	t_main = (t_fdf *)param;
 	if (code == 65307)
 		free_fdf(t_main, 1);
-	else if (code == 119 || code == 115)
+	else if (code == 1731 || code == 1753)
 		change_height(t_main, code);
 	else if (code == 45 || code == 61)
 		change_zoom(t_main, code);
 	else if (code == 65361 || code == 65362
 		|| code == 65363 || code == 65364)
 		change_shift(t_main, code);
-	else if (code == 122)
+	else if (code == 1745)
 		reset(t_main, t_main->proj);
 	else
 		hook_2(code, t_main);

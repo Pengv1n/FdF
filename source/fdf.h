@@ -17,16 +17,15 @@
 # define WIDTH 1250
 
 # define WHITE 0xFFFFFF
-# define YELLOW 0xFFD700
-# define RED 0xFF2500
-# define GREEN 0x9ACD32
-# define BLUE 0x0000CD
+# define YELLOW 0xFFFF00
+# define RED 0xFF0000
+# define GREEN 0x008000
+# define BLUE 0x0000FF
 # define ORANGE 0xFFA500
 
 # include "../libft/libft.h"
 # include "fcntl.h"
 # include "../minilibx/mlx.h"
-# include "../minilibx/mlx_int.h"
 # include "../get_next_line/get_next_line.h"
 # include "math.h"
 

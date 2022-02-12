@@ -1,6 +1,6 @@
 NAME := fdf
 
-TEST_FILE := test_maps/42.fdf
+TEST_FILE := test_maps/t1.fdf
 
 cc := gcc
 FLAGS := -Wall -Werror -Wextra
@@ -17,7 +17,7 @@ GNL_SRC := $(GNL_DIR)/get_next_line.c
 GNL_HEAD := $(GNL_DIR)/get_next_line.h
 
 SRC_DIR := source
-HEAD := fdf.h
+HEAD := $(SRC_DIR)/fdf.h
 SRC := 	$(SRC_DIR)/calc_proj.c \
 		$(SRC_DIR)/calculation.c \
 		$(SRC_DIR)/center.c \

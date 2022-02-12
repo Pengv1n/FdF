@@ -19,7 +19,7 @@ void	menu(t_fdf *t_main)
 		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 32, WHITE,
 			"----- Reference (hide: M) -----");
 		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 62, WHITE,
-					   "Zoom out/in: -/+");
+			"Zoom out/in: -/+");
 		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 82, WHITE,
 			"Lower/increase height: W/S");
 		mlx_string_put(t_main->mlx.mlx_ptr, t_main->mlx.win, 10, 102, WHITE,
